@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Renewal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="./time-to.js"></script>
+
+    <main>
+        <h1 id="landing-title">Relationship Contract Renewal</h1>
+        <p class="time" id="time"></p>
+
+    </main>
+
+</body>
+
+<script>
+    window.addEventListener("load", () => {
+        let timeParagraph = document.getElementById("time");
+
+        if (getTimeDelta()) {
+            timeParagraph.innerHTML = getTimeDelta() + " until your relationship expires!"
+
+            timeParagraph.insertAdjacentHTML("afterend", `<a id="proceed" href="first-party.html" class="flex-row-text">Click to proceed <img id="right-arrow"src="./assets/arrow.png" alt=""> </a>`)
+            setInterval(() => {
+                console.log("s")
+                timeParagraph.innerHTML = getTimeDelta() + " until your relationship expires!"
+            }, 1000)
+        } else {
+            timeParagraph.innerHTML = "Your relationship has expired! <br> Please email <a class='mail-link' href='mailto:vanajmoorthy@gmail.com'>vanajmoorthy@gmail.com</a> with an adeuqate explanation for the delay to renew your relationship."
+        }
+
+    })
+
+</script>
+
+</html>
