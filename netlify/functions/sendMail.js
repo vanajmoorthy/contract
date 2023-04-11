@@ -28,10 +28,18 @@ const request = mailjet.post("send", { version: "v3.1" }).request({
 	],
 });
 
-request
-	.then((result) => {
-		console.log(result.body);
-	})
-	.catch((err) => {
-		console.log(err.statusCode);
-	});
+exports.handler = async (event) => {
+	return request
+		.then((result) => {
+			return {
+				statusCode: 200,
+				body: JSON.stringify(result.body),
+			};
+		})
+		.catch((err) => {
+			return {
+				statusCode: err.statusCode,
+				body: JSON.stringify(err),
+			};
+		});
+};
