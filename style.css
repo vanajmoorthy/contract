@@ -1,0 +1,117 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Playfair Display", serif;
+	background-color: rgb(229, 229, 229);
+	height: 100vh;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
+	padding: 2rem 4rem;
+}
+
+#landing-title {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+.flex-row-text {
+	display: flex;
+	align-items: center;
+	font-size: 1.2rem;
+	transition: 0.2s ease all;
+}
+
+.flex-row-text:hover {
+	cursor: pointer;
+	opacity: 0.6;
+}
+
+.flex-row-text:hover #right-arrow {
+	transform: translateX(5px);
+}
+
+#right-arrow {
+	width: 30px;
+	margin-left: 0.2rem;
+	transition: 0.2s ease all;
+}
+
+.fade-up {
+	animation: fadeIn 1s;
+}
+
+.body-copy {
+	max-width: 800px;
+	font-size: 1.2rem;
+	margin-bottom: 1rem;
+	line-height: 30px;
+}
+
+.name-input {
+	font-family: inherit;
+	font-size: inherit;
+	background-color: inherit;
+	border: none;
+	border-bottom: 1px solid black;
+	transition: 0.2s ease all;
+	max-width: 200px;
+}
+
+.e-sign {
+	font-family: inherit;
+	font-size: inherit;
+	background-color: inherit;
+	border: none;
+	border-bottom: 1px solid black;
+	transition: 0.2s ease all;
+	max-width: 200px;
+}
+
+.e-sign-div {
+}
+
+.undersign {
+	border: none;
+}
+
+.name-input:focus {
+	transition: 0.2s ease all;
+
+	outline: none;
+}
+
+.name-input:active {
+	/* outline: none; */
+}
+
+.name-input::placeholder {
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+	100% {
+		opacity: 1;
+	}
+}
