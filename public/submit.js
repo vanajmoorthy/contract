@@ -20,7 +20,7 @@ submitBtnTwo.addEventListener("click", async () => {
 	}
 
 	const response1 = await fetch(
-		"https://contract-vanajmoorthy.netlify.app/.netlify/functions/sendMail?" +
+		"/.netlify/functions/sendMail?" +
 			new URLSearchParams({
 				email: "vanaj.india@gmail.com",
 				partyOneName: eSignOne,
@@ -34,7 +34,7 @@ submitBtnTwo.addEventListener("click", async () => {
 
 	// Change to simar email
 	const response2 = await fetch(
-		"https://contract-vanajmoorthy.netlify.app/.netlify/functions/sendMail?" +
+		"/.netlify/functions/sendMail?" +
 			new URLSearchParams({
 				email: "vanaj.india@gmail.com",
 				partyOneName: nameFormOne.value,
