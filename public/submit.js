@@ -35,8 +35,8 @@ submitBtnTwo.addEventListener("click", async () => {
 		"/.netlify/functions/sendMail?" +
 			new URLSearchParams({
 				email: "vanaj.india@gmail.com",
-				partyOneName: eSignOne,
-				partyTwoName: eSignTwo,
+				partyOneName: nameFormOne.value,
+				partyTwoName: nameFormTwo.value,
 			})
 	);
 

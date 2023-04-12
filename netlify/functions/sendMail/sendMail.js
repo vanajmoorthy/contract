@@ -12,23 +12,20 @@ exports.handler = async (event) => {
 			{
 				From: {
 					Email: "vanajmoorthy@gmail.com",
-					Name: "Vanaj and Simar Relationship Contract",
+					Name: "Vanaj Relationship Management Service",
 				},
 				To: [
 					{
 						Email: event.queryStringParameters.email,
 					},
 				],
+				TemplateID: 4727192,
+				TemplateLanguage: true,
 				Subject: "Congratulations on renewing your relationship!",
-				TextPart:
-					"Dear Simar & Vanaj. Congratulations on renewing your relationship for the year " +
-					new Date().getFullYear() +
-					"!",
-				HTMLPart: `<h3>Signed: ${
-					event.queryStringParameters.partyOneName
-				} and ${
-					event.queryStringParameters.partyTwoName
-				}</h3> on ${new Date().toDateString()}`,
+				Variables: {
+					partyTwoName: event.queryStringParameters.partyTwoName,
+					partyOneName: event.queryStringParameters.partyOneName,
+				},
 			},
 		],
 	});
