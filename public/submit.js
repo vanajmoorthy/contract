@@ -30,6 +30,8 @@ submitBtnTwo.addEventListener("click", async () => {
 
 	let res1 = await response1.json();
 
+	console.log(res1);
+
 	// Change to simar email
 	const response2 = await fetch(
 		"/.netlify/functions/sendMail?" +
