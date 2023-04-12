@@ -7,7 +7,12 @@
 body {
 	font-family: "Playfair Display", serif;
 	background-color: rgb(229, 229, 229);
-	height: 100vh;
+}
+
+@media screen and (min-width: 700px) {
+	body {
+		height: 100vh;
+	}
 }
 
 a {
@@ -18,10 +23,17 @@ a {
 main {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 	flex-direction: column;
 	height: 100%;
 	padding: 2rem 4rem;
+	max-width: 800px;
+	margin: auto;
+}
+
+li {
+	font-size: 1.2rem;
+	margin-left: 1.5rem;
 }
 
 #landing-title {
@@ -57,10 +69,23 @@ main {
 }
 
 .body-copy {
-	max-width: 800px;
 	font-size: 1.2rem;
 	margin-bottom: 1rem;
 	line-height: 30px;
+}
+
+.canvas {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+}
+
+#cnv {
+	max-width: 560px;
+	border: 1px solid black;
+	margin: 1rem 0;
 }
 
 .name-input {
@@ -68,9 +93,37 @@ main {
 	font-size: inherit;
 	background-color: inherit;
 	border: none;
-	border-bottom: 1px solid black;
+	border-bottom: 1px dashed black;
 	transition: 0.2s ease all;
 	max-width: 200px;
+	transition: 0.2s ease all;
+}
+
+.flex-col > h2 {
+	font-weight: 500;
+	text-align: center;
+}
+
+.flex-col > h3 {
+	font-weight: 400;
+	text-align: center;
+}
+
+.success-image {
+	height: min-content;
+	width: 500px;
+}
+
+#date {
+	border-bottom: 1px solid black;
+}
+
+::placeholder {
+	color: grey !important;
+}
+
+.focused {
+	border-bottom: 1px solid black;
 }
 
 .e-sign {
@@ -80,20 +133,53 @@ main {
 	border: none;
 	border-bottom: 1px solid black;
 	transition: 0.2s ease all;
-	max-width: 200px;
+	max-width: 150px;
+}
+.e-sign-div {
+	margin-bottom: 1rem;
+	margin-top: 2rem;
+}
+
+.flex-col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
 }
 
 #time,
 .time {
-	text-align: center;
 	margin-bottom: 1rem;
+	text-align: center;
+	margin-top: 1rem;
+}
+
+.back-link {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	transition: 0.2s ease all;
+	margin-bottom: 2rem;
+}
+
+.back-arrow {
+	margin-right: 0.5rem;
+}
+.back-link:hover {
+	opacity: 0.7;
+}
+
+.back-text {
+	transition: 0.2s ease all;
+}
+
+.back-link:hover > .back-text {
+	transform: translateX(5px);
 }
 
 .mail-link {
 	color: #1da7ea;
-}
-
-.e-sign-div {
 }
 
 .undersign {
@@ -106,14 +192,32 @@ main {
 	outline: none;
 }
 
-.name-input:active {
-	/* outline: none; */
-}
-
 .name-input::placeholder {
 	font-family: inherit;
 	font-size: inherit;
-	color: inherit;
+}
+
+.flex-row {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	width: 100%;
+}
+
+#submit {
+	background-color: transparent;
+	border: 1px solid black;
+	border-radius: 0px;
+	padding: 0.3rem 0.6rem;
+	font-size: 1.2rem;
+	font-family: "Playfair Display", serif;
+	transition: 0.2s ease all;
+	margin-top: 1rem;
+}
+
+#submit:hover {
+	cursor: pointer;
+	opacity: 0.6;
 }
 
 @keyframes fadeIn {
@@ -123,5 +227,46 @@ main {
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+.row {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.contract-border {
+	padding: 3rem 3rem;
+	border: 1px dashed black;
+}
+
+@media screen and (max-height: 800px) {
+	#cnv {
+		max-width: 400px;
+	}
+}
+@media screen and (max-width: 700px) {
+	main {
+		padding: 2rem 1rem;
+	}
+	.flex-col {
+		height: calc(100vh - 4rem);
+	}
+	#landing-title {
+		font-size: 1.7rem;
+	}
+
+	#cnv {
+		max-width: 300px;
+	}
+	.contract-border {
+		padding: 1rem;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.success-image {
+		width: 400px;
 	}
 }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Renewal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+        <a class="back-link" href="/index.html">
+            <svg class="back-arrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
+                <path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path>
+            </svg>
+            <span class="back-text">go back</span></a>
+        <div class="contract-border">
+
+
+            <p class="fade-up body-copy">
+                This agreement is made and entered into on <span id="date"></span> by
+                and between <input type="text" name="first-party-name" id="first-party" class="name-input"
+                    placeholder="partner one name here">,
+                and <input type="text" name="second-party-name" id="second-party" class="name-input"
+                    placeholder="partner two name here">,
+                (collectively referred to as "the Partners").
+            </p>
+
+            <p class="fade-up body-copy">
+                The Partners solemnly swear that after
+                careful consideration and thorough
+                deliberation they have decided to
+                renew their relationship for the following year.
+            </p>
+
+            <p class="fade-up body-copy">
+                Whereas, the Partners wish to continue their relationship and affirm their love and commitment to each
+                other
+                through the annual renewal of this agreement.
+            </p>
+
+
+            <p class="fade-up body-copy">
+                The Partners hereby agree as follows:
+            <ol class="fade-up body-copy">
+                <li>To provide 1000 hugs and or kisses per day, availed upon a discretionary request submitted by the
+                    other
+                    party.</li>
+                <li>To provide support in personal and professional endeavours, encouragement as needed, and tough-love
+                    as
+                    required.</li>
+                <li>To always be honest and strive open communication, with an effort to understand each partner's
+                    perspective.</li>
+                <li>At least 1 hour of meaningful conversation and 20 hours of silliness per week.</li>
+                <li>To renew this agreement before April 30th, 11:59 pm every year, acknowledging that failure to do so
+                    will
+                    result in the termination of this agreement at the Central Relationship Registry.</li>
+
+            </ol>
+            </p>
+
+            <p class="fade-up body-copy">
+                In witness whereof, the Partners have executed this Agreement as of the date first written above.
+            </p>
+            <div class="flex-row">
+                <div class="row">
+                    <div class="e-sign-div">
+                        <input type="text" name="e-sign" id="first-party-e-sign" class="e-sign"
+                            placeholder="Initial here to e-sign">
+                        <p class="undersign">PARTNER ONE</p>
+                    </div>
+                    <div class="e-sign-div">
+                        <input type="text" name="e-sign" id="second-party-e-sign" class="e-sign"
+                            placeholder="Initial here to e-sign">
+                        <p class="undersign">PARTNER TWO</p>
+
+                    </div>
+                </div>
+                <button id="submit">
+                    submit
+                </button>
+            </div>
+        </div>
+    </main>
+    <script src="./submit.js"></script>
+    <script src="./time-to.js"></script>
+
+    <script>
+        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        let dateSpan = document.getElementById("date");
+
+        dateSpan.innerText = new Date().toLocaleDateString("en-GB", options);
+
+
+    </script>
+</body>
+
+</html>

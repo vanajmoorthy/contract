@@ -20,9 +20,11 @@
     <script src="./time-to.js"></script>
 
     <main>
-        <h1 id="landing-title">Relationship Contract Renewal</h1>
-        <p class="time" id="time"></p>
-
+        <div class="flex-col">
+            <h1 id="landing-title">Relationship Contract Renewal</h1>
+            <canvas id="cnv"></canvas>
+            <p class="time" id="time"></p>
+        </div>
     </main>
 
 </body>
@@ -34,7 +36,7 @@
         if (getTimeDelta()) {
             timeParagraph.innerHTML = getTimeDelta() + " until your relationship expires!"
 
-            timeParagraph.insertAdjacentHTML("afterend", `<a id="proceed" href="first-party.html" class="flex-row-text">Click to proceed <img id="right-arrow"src="./assets/arrow.png" alt=""> </a>`)
+            timeParagraph.insertAdjacentHTML("afterend", `<a id="proceed" href="contract.html" class="flex-row-text">Click to proceed <img id="right-arrow"src="./assets/arrow.png" alt=""> </a>`)
             setInterval(() => {
                 console.log("s")
                 timeParagraph.innerHTML = getTimeDelta() + " until your relationship expires!"
@@ -44,6 +46,54 @@
         }
 
     })
+
+    var canvas = document.getElementById('cnv');
+    var context = canvas.getContext('2d');
+
+    var size = window.innerWidth;
+    var dpr = window.devicePixelRatio;
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    context.scale(dpr, dpr);
+    context.lineWidth = 5;
+
+    var finalSize = 3;
+    var startSteps;
+    var offset = 0;
+    var tileStep = (size - offset * 2) / 7;
+    var startSize = tileStep;
+    var directions = [-1, 0, 1];
+
+    const draw = (x, y, width, height, xMovement, yMovement, steps) => {
+        context.beginPath();
+        context.rect(x, y, width, height);
+        context.strokeStyle = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        context.stroke();
+
+        if (steps >= 0) {
+            var newSize = (startSize) * (steps / startSteps) + finalSize;
+            var newX = x + (width - newSize) / 2
+            var newY = y + (height - newSize) / 2
+            newX = newX - ((x - newX) / (steps + 2)) * xMovement
+            newY = newY - ((y - newY) / (steps + 2)) * yMovement
+            draw(newX, newY, newSize, newSize, xMovement, yMovement, steps - 1);
+        }
+
+    }
+
+    setInterval(() => {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (var x = offset; x < size - offset; x += tileStep) {
+            for (var y = offset; y < size - offset; y += tileStep) {
+                startSteps = 2 + Math.ceil(Math.random() * 3)
+                var xDirection = directions[Math.floor(Math.random() * directions.length)]
+                var yDirection = directions[Math.floor(Math.random() * directions.length)]
+                draw(x, y, startSize, startSize, xDirection, yDirection, startSteps - 1);
+            }
+        }
+
+    }, 200)
 
 </script>
 

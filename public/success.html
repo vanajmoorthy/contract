@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Renewal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+    <main>
+        <div class="flex-col">
+            <h1 id="landing-title">Congratulations!</h1>
+            <img class="success-image" src="./assets/family2.svg" alt="">
+            <h2>Your relationship has been successfully renewed.</h2>
+
+            <h3>Please check your email for the renewal confirmation.</h3>
+        </div>
+    </main>
+
+</body>
+
+<script>
+    let myCanvas = document.createElement('canvas');
+    myCanvas.classList.add("canvas");
+    document.body.appendChild(myCanvas);
+
+    let myConfetti = confetti.create(myCanvas, {
+        resize: true,
+        useWorker: true
+    });
+
+    setTimeout(() => {
+        let duration = 300 * 1000;
+        let end = Date.now() + duration;
+
+        (function frame() {
+            // launch a few confetti from the left edge
+            confetti({
+                particleCount: 7,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0, y: 0.7 }
+            });
+            confetti({
+                particleCount: 7,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1, y: 0.7 }
+            });
+
+            // keep going until we are out of time
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+    }, 1000)
+
+</script>
+
+
+</html>
