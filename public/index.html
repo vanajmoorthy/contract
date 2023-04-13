@@ -39,7 +39,6 @@
 
             timeParagraph.insertAdjacentHTML("afterend", `<a id="proceed" href="contract.html" class="flex-row-text">Click to proceed <img id="right-arrow"src="./assets/arrow.png" alt=""> </a>`)
             setInterval(() => {
-                console.log("s")
                 timeParagraph.innerHTML = getTimeDelta() + " until your relationship expires!"
             }, 1000)
         } else {
