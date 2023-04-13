@@ -45,7 +45,7 @@ submitBtnTwo.addEventListener("click", async () => {
 	let res2 = await response2.json();
 
 	if (res1["Messages"][0]["Status"] && res2["Messages"][0]["Status"]) {
-		window.location.href = "contract/success.html";
+		window.location.href = "https://vanajmoorthy.com/contract/success.html";
 	} else {
 		alert(res1["Messages"][0]["Status"]);
 	}
