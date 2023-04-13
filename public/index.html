@@ -30,10 +30,11 @@
 </body>
 
 <script>
+
     window.addEventListener("load", () => {
         let timeParagraph = document.getElementById("time");
 
-        if (getTimeDelta()) {
+        if (getTimeDelta() || localStorage.getItem("hasSigned")) {
             timeParagraph.innerHTML = getTimeDelta() + " until your relationship expires!"
 
             timeParagraph.insertAdjacentHTML("afterend", `<a id="proceed" href="contract.html" class="flex-row-text">Click to proceed <img id="right-arrow"src="./assets/arrow.png" alt=""> </a>`)
@@ -42,7 +43,8 @@
                 timeParagraph.innerHTML = getTimeDelta() + " until your relationship expires!"
             }, 1000)
         } else {
-            timeParagraph.innerHTML = "Your relationship has expired! <br> Please email <a class='mail-link' href='mailto:vanajmoorthy@gmail.com'>vanajmoorthy@gmail.com</a> with an adeuqate explanation for the delay to renew your relationship."
+            localStorage.setItem("hasSigned", false);
+            timeParagraph.innerHTML = "Your ,relationship has expired! <br> Please email <a class='mail-link' href='mailto:vanajmoorthy@gmail.com'>vanajmoorthy@gmail.com</a> with an adeuqate explanation for the delay to renew your relationship."
         }
 
     })

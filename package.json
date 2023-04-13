@@ -12,6 +12,7 @@
   "dependencies": {
     "@google-cloud/local-auth": "^2.1.0",
     "googleapis": "^105.0.0",
+    "mongodb": "^5.2.0",
     "node-mailjet": "^6.0.2",
     "sendmail": "^1.6.1"
   },

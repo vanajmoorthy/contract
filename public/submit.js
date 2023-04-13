@@ -49,6 +49,8 @@ submitBtnTwo.addEventListener("click", async () => {
 	} else {
 		alert(res1["Messages"][0]["Status"]);
 	}
+
+	localStorage.setItem("hasSigned", true);
 });
 
 let hasFocusedOnNameInputOne;
