@@ -28,26 +28,23 @@ submitBtnTwo.addEventListener("click", async () => {
 			})
 	);
 
-	let res1 = await response1.json();
-
-	console.log(res1);
+	console.log(response1.status);
 
 	// Change to simar email
 	const response2 = await fetch(
 		"/.netlify/functions/sendMail?" +
 			new URLSearchParams({
 				email: "simarkrikhy353@gmail.com",
+				// email: "vanaj.india@gmail.com",
 				partyOneName: nameFormOne.value,
 				partyTwoName: nameFormTwo.value,
 			})
 	);
 
-	let res2 = await response2.json();
-
-	if (res1["Messages"][0]["Status"] && res2["Messages"][0]["Status"]) {
+	if (response1.status == 200 && response2.status == 200) {
 		window.location.href = "success.html";
 	} else {
-		alert(res1["Messages"][0]["Status"]);
+		alert(response1.status);
 	}
 
 	localStorage.setItem("hasSigned", true);

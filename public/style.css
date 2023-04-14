@@ -7,11 +7,13 @@
 body {
 	font-family: "Playfair Display", serif;
 	background-color: rgb(229, 229, 229);
+	min-height: 100vh;
+	display: flex;
 }
 
 @media screen and (min-width: 700px) {
 	body {
-		height: 100vh;
+		min-height: 100vh;
 	}
 }
 
