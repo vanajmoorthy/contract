@@ -34,7 +34,7 @@
     window.addEventListener("load", () => {
         let timeParagraph = document.getElementById("time");
 
-        if (getTimeDelta() || localStorage.getItem("hasSigned")) {
+        if (getTimeDelta() && localStorage.getItem("hasSigned")) {
             timeParagraph.innerHTML = getTimeDelta() + " until your relationship expires!"
 
             timeParagraph.insertAdjacentHTML("afterend", `<a id="proceed" href="contract.html" class="flex-row-text">Click to proceed <img id="right-arrow"src="./assets/arrow.png" alt=""> </a>`)
